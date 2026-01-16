@@ -1,0 +1,254 @@
+
+.card-body h1,
+.content-card h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-primario);
+  margin-top: 0;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-borde);
+  text-shadow: none;
+}
+/* Espaciado de los campos */
+.card-body form div,
+.card-body form fieldset {
+  margin-bottom: 1.5rem;
+}
+
+/* ---
+--- ESTILO DE ETIQUETAS (LABELS) CON ICONOS (CORREGIDO) ---
+---
+*/
+.form-label {
+  display: flex; 
+  align-items: center;
+  margin-bottom: 0.65rem;
+  font-weight: 600;
+  color: var(--color-texto-secundario);
+  font-size: 0.95rem;
+}
+
+
+/* Usamos '::before' para que el icono se dibuje ANTES del texto */
+.form-label::before {
+  font-family: "Font Awesome 6 Free"; 
+  font-weight: 900; 
+  font-size: 1em;
+  color: var(--color-primario); /* Icono azul */
+  margin-right: 0.75rem; /* Espacio entre el icono y el texto */
+  width: 20px; /* Ancho fijo para alinear todo */
+  text-align: center;
+  
+  content: "\f101"; /* Icono genérico por defecto */
+}
+
+/* --- Asignamos un icono diferente a CADA label (AHORA SÍ) --- */
+label[for="nombre"]::before, 
+label[for="nombreCompleto"]::before,
+label[for="nombreRol"]::before,
+label[for="nombreCurso"]::before,
+label[for="firma"]::before {
+  content: "\f007"; /* Icono de "user" */
+}
+
+label[for="fechaIngreso"]::before, 
+label[for="fechaNacimiento"]::before, 
+label[for="fechaInicio"]::before, 
+label[for="fechaMedicion"]::before, 
+label[for="fechaSuministro"]::before,
+label[for="fechaContratacion"]::before,
+label[for="fechaEvaluacion"]::before,
+label[for="fecha"]::before {
+  content: "\f073"; /* Icono de "calendar" */
+}
+
+label[for="numCuarto"]::before, 
+label[for="numeroCama"]::before {
+  content: "\f236"; /* Icono de "bed" */
+}
+
+label[for="estadoSalud"]::before, 
+label[for="diagnosticos"]::before, 
+label[for="cuidados"]::before, 
+label[for="descripcion"]::before,
+label[for="diagnostico"]::before {
+  content: "\f0f1"; /* Icono de "stethoscope" */
+}
+
+label[for="idPaciente"]::before, 
+label[for="idRegistro"]::before {
+  content: "\f47f"; /* Icono de "id-card" */
+}
+
+label[for="idEnfermero"]::before, 
+label[for="idEnfermeroTurno"]::before {
+  content: "\f406"; /* Icono de "user-nurse" */
+}
+
+label[for="especialidad"]::before, 
+label[for="titulo"]::before {
+  content: "\f0a1"; /* Icono de "briefcase-medical" */
+}
+
+label[for="turno"]::before {
+  content: "\f017"; /* Icono de "clock" */
+}
+
+label[for="presionArterial"]::before {
+  content: "\f043"; /* Icono de "tint" (gota) */
+}
+
+label[for="oxigenoSangre"]::before {
+  content: "\f06e"; /* Icono de "eye" */
+}
+
+label[for="temperatura"]::before {
+  content: "\f2c9"; /* Icono de "thermometer-half" */
+}
+
+label[for="glucosa"]::before {
+  content: "\f496"; /* Icono de "vial" */
+}
+
+label[for="nombreArea"]::before,
+label[for="idArea"]::before {
+  content: "\f61f"; /* Icono de "hospital-symbol" */
+}
+
+label[for="nivelUrgencia"]::before {
+  content: "\f071"; /* Icono de "exclamation-triangle" */
+}
+
+/* Tuve que corregir este selector */
+label[for="nombre_item"]::before, 
+label[for="idItem"]::before,
+label[for="medicamento"]::before {
+  content: "\f49e"; /* Icono de "boxes" */
+}
+
+label[for="cantidadDosis"]::before,
+label[for="cantidad"]::before,
+label[for="cantidadStock"]::before {
+  content: "\f48e"; /* Icono de "pills" */
+}
+
+label[for="dosis"]::before {
+  content: "\f0c2"; /* Icono de "cloud" */
+}
+label[for="unidadMedida"]::before {
+  content: "\f53d"; /* Icono de "ruler-combined" */
+}
+
+/* --- (El resto de los estilos de inputs y botones) --- */
+.form-control, .form-select {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  font-size: 1rem;
+  color: var(--color-texto-principal);
+  background-color: #fdfdfd;
+  border: 2px solid var(--color-borde);
+  border-radius: 6px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-control:focus, .form-select:focus {
+  outline: none;
+  border-color: var(--color-primario);
+  background-color: var(--color-tarjeta);
+  box-shadow: 0 0 0 4px rgba(0, 90, 156, 0.1);
+}
+.btn-primary {
+  background-color: var(--color-primario);
+  border-color: var(--color-primario);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background-color: var(--color-primario-oscuro);
+  border-color: var(--color-primario-oscuro);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.btn-success {
+  background-color: var(--color-acento);
+  border-color: var(--color-acento);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.btn-success:hover {
+  background-color: #007A70;
+  border-color: #007A70;
+  transform: translateY(-1px);
+}
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+  transform: translateY(-1px);
+}
+.btn-primary:active,
+.btn-success:active,
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+.btn-primary:not(.submitted)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 75%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: skewX(-25deg);
+  transition: left 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.btn-primary:not(.submitted):hover::before {
+  left: 100%;
+}
+.confirmacion-exitosa h1 {
+    color: var(--color-acento);
+    border-bottom: 2px solid var(--color-acento);
+}
+.content-card hr {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  border: 0;
+  border-top: 1px solid var(--color-borde);
+}
+.confirmacion-exitosa p strong {
+  color: var(--color-texto-principal);
+  font-weight: 600;
+}
+.confirmacion-exitosa p {
+  color: var(--color-texto-secundario);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  background-color: var(--color-fondo);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  word-wrap: break-word;
+  margin-bottom: 0.75rem;
+}

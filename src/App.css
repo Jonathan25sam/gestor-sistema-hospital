@@ -1,0 +1,235 @@
+
+:root {
+  --color-primario: #005A9C;
+  --color-primario-oscuro: #003D6B;
+  --color-acento: #00A89C;
+  --color-fondo: #f4f7fB;
+  --color-tarjeta: #ffffff;
+  --color-texto-principal: #2c3e50;
+  --color-texto-secundario: #555e68;
+  --color-borde: #dde4ed;
+  
+  --sombra-tarjeta: 0 4px 12px rgba(0, 0, 0, 0.05); 
+  --radio-borde: 8px;
+}
+
+/* ---
+--- ESTILO DEL BODY CON IMAGEN Y OVERLAY AZUL ---
+---
+*/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+  /* --- IMAGEN DE FONDO CON CAPA AZUL --- */
+  background-image: 
+    linear-gradient(rgba(0, 90, 156, 0.7), rgba(0, 90, 156, 0.7)), /* Capa azul */
+    url('https://hospitecnia.com/sites/default/files/inline-images/imagen-01_9.jpg');
+  
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Fija la imagen */
+  background-color: var(--color-primario); /* Color de respaldo */
+  color: var(--color-texto-principal);
+  line-height: 1.6;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+/* --- HEADER ULTRAPRO --- */
+
+.header {
+ 
+  background: linear-gradient(-45deg, #003D6B, #005A9C, #008f9c, #002a4a);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite; /* El fondo se mueve solo */
+  
+  padding: 0.8rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+  
+  /* Borde inferior brillante sutil */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px -10px rgba(0, 48, 87, 0.6);
+}
+
+/* Animación del Fondo */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- ZONA IZQUIERDA (LOGO) --- */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.icon-wrapper {
+  position: relative;
+  cursor: pointer; 
+}
+
+.header-icon {
+  font-size: 2rem;
+  color: white;
+  
+  /* Efecto Vidrio (Glassmorphism) */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  padding: 14px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  transition: all 0.3s ease;
+}
+
+
+.icon-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 168, 156, 0.6); /* Resplandor cyan */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.icon-wrapper:hover::after {
+  opacity: 1; 
+}
+
+.header-texts {
+  display: flex;
+  flex-direction: column;
+}
+
+.header h1 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0;
+  color: white;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  background: linear-gradient(to right, #ffffff, #e0f7fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+}
+
+.header p {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 2px;
+}
+
+/* --- ZONA DERECHA (ESTADO) --- */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.header-right:hover {
+  background: rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.status-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+
+.status-indicator {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  background-color: #00ff88; /* Verde neón */
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ff88;
+}
+
+/* La onda expansiva */
+.status-indicator::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  background-color: #00ff88;
+  opacity: 0.7;
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% { width: 100%; height: 100%; opacity: 0.7; }
+  100% { width: 300%; height: 300%; opacity: 0; } 
+}
+
+
+.header-left, .header-right {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+
+
+
+
+main.layout-container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+  margin: 0;
+  max-width: 100%;
+  min-height: calc(100vh - 240px);
+}
+
+
+.content-card {
+  flex-grow: 1;
+  width: auto;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-tarjeta);
+  background-color: var(--color-tarjeta);
+  padding: 2.5rem;
+}
+
+
+.footer {
+  background-color: var(--color-primario-oscuro);
+  color: #a7d9d7;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 0;
+  font-size: 0.9rem;
+  border-top: 4px solid var(--color-primario);
+}
+.footer p {
+  margin: 0;
+}
